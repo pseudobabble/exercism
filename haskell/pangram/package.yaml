@@ -8,6 +8,7 @@ library:
   exposed-modules: Pangram
   source-dirs: src
   ghc-options: -Wall
+  default-extensions: OverloadedStrings
   dependencies:
   - text
   - sort

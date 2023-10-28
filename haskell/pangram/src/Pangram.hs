@@ -17,17 +17,17 @@ letters = "abcdefghijklmnopqrstuvwxyz" :: Text
 removeChar :: Char -> Text -> Text
 removeChar char text = T.filter (/= char) text
 
-isNotDigit :: Char -> Bool
-isNotDigit c = not (isDigit c)
-
-removeDigit :: Text -> Text
-removeDigit text = T.filter isNotDigit text
-
 isNotPunctuation :: Char -> Bool
 isNotPunctuation c = not (isPunctuation c)
 
 removePunctuation :: Text -> Text
 removePunctuation text = T.filter isNotPunctuation text
+
+isNotDigit :: Char -> Bool
+isNotDigit c = not (isDigit c)
+
+removeDigit :: Text -> Text
+removeDigit text = T.filter isNotDigit text
 
 keepAscii :: Text -> Text
 keepAscii text = T.filter isAscii text
@@ -47,5 +47,3 @@ uniqueText text = pack (nub (unpack text))
 
 isPangram :: Text -> Bool
 isPangram text = uniqueText (sortText (lowercase (stripUnwantedChars text))) == letters
-
--- isPangram text = nub (sort (lowercase (removeChar text))) == letters
